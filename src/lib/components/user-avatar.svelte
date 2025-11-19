@@ -3,8 +3,7 @@
 	import { pb } from '$lib/stores/pocketbase';
 	import type { RecordModel } from 'pocketbase';
 
-	export let user: RecordModel | null;
-	export let size: 'sm' | 'md' | 'lg' = 'md';
+	let { user, size = 'md' }: { user: RecordModel | null; size?: 'sm' | 'md' | 'lg' } = $props();
 
 	const sizeClasses = {
 		sm: 'h-8 w-8 text-sm',
@@ -62,9 +61,9 @@
 		return colors[Math.abs(hash) % colors.length];
 	}
 
-	$: avatarUrl = getAvatarUrl(user);
-	$: initials = getInitials(user);
-	$: bgColor = getBackgroundColor(user);
+	let avatarUrl = $derived(getAvatarUrl(user));
+	let initials = $derived(getInitials(user));
+	let bgColor = $derived(getBackgroundColor(user));
 </script>
 
 <Avatar.Root class={sizeClasses[size]}>
