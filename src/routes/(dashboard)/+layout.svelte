@@ -7,7 +7,7 @@
 	import { Toaster } from '$lib/components/ui/sonner';
 
 	let { children } = $props();
-	let mobileMenuOpen = false;
+	let mobileMenuOpen = $state(false);
 
 	const navItems = [
 		{ href: '/', label: 'Home', icon: Home },
