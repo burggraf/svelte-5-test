@@ -6,6 +6,7 @@
 	import { Menu, Home, BarChart3, Settings, FileText } from 'lucide-svelte';
 	import { Toaster } from '$lib/components/ui/sonner';
 
+	let { children } = $props();
 	let mobileMenuOpen = false;
 
 	const navItems = [
@@ -57,7 +58,7 @@
 	<div class="flex flex-1 flex-col overflow-hidden">
 		<!-- Top Bar (Mobile) -->
 		<header class="flex h-16 items-center border-b bg-white px-4 md:hidden">
-			<Button variant="ghost" size="icon" on:click={() => (mobileMenuOpen = true)}>
+			<Button variant="ghost" size="icon" onclick={() => (mobileMenuOpen = true)}>
 				<Menu class="h-6 w-6" />
 			</Button>
 			<h1 class="ml-4 text-lg font-semibold">Dashboard</h1>
@@ -65,7 +66,7 @@
 
 		<!-- Content Area -->
 		<main class="flex-1 overflow-y-auto p-4 md:p-6">
-			<slot />
+			{@render children()}
 		</main>
 	</div>
 </div>
@@ -84,7 +85,7 @@
 				{#each navItems as item}
 					<a
 						href={item.href}
-						on:click={() => (mobileMenuOpen = false)}
+						onclick={() => (mobileMenuOpen = false)}
 						class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors {isActive(
 							item.href
 						)

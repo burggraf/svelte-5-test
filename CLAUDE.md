@@ -99,24 +99,44 @@ npx shadcn-svelte@latest add [component-name]
 - Custom field: `avatar` (File type, 1 max, 5MB, image/* only)
 - Files served via `pb.files.getUrl(user, user.avatar)`
 
-## Svelte 5 Syntax
+## ⚠️ CRITICAL: Svelte 5 Syntax ONLY
 
-**This project uses Svelte 5, not Svelte 4. Key differences:**
+**This project uses Svelte 5 exclusively. DO NOT use Svelte 4 syntax. All code MUST use Svelte 5 patterns.**
 
-### Event Handlers
-- ❌ `on:click={handler}` (Svelte 4)
-- ✅ `onclick={handler}` (Svelte 5)
-- ❌ `on:keypress={handler}` (Svelte 4)
-- ✅ `onkeypress={handler}` (Svelte 5)
+### Event Handlers (MANDATORY)
+- ❌ **NEVER** use `on:click={handler}` (Svelte 4 - WILL NOT WORK)
+- ✅ **ALWAYS** use `onclick={handler}` (Svelte 5)
+- ❌ **NEVER** use `on:keypress={handler}` (Svelte 4 - WILL NOT WORK)
+- ✅ **ALWAYS** use `onkeypress={handler}` (Svelte 5)
+- ❌ **NEVER** use `on:*={handler}` for any event (Svelte 4 - WILL NOT WORK)
+- ✅ **ALWAYS** use `on*={handler}` (lowercase, no colon) (Svelte 5)
 
-### Component Children
-- ❌ `<slot />` (deprecated in Svelte 5 for components)
-- ✅ `{@render children()}` for snippet children OR `{children}` for text children
-- ✅ `<slot />` still works in layouts but prefer Svelte 5 patterns
+### Component Children (MANDATORY)
+- ❌ **NEVER** use `<slot />` (deprecated in Svelte 5 - WILL NOT WORK)
+- ✅ **ALWAYS** use `{@render children()}` in layouts and components
+- ✅ For components that accept both text and snippets:
+  ```svelte
+  let { children } = $props();
+  const isSnippet = children && typeof children === 'function';
 
-### Props
-- Use `$props()` rune: `let { prop1, prop2 } = $props();`
-- Use `$bindable()` for two-way binding: `let { value = $bindable() } = $props();`
+  {#if isSnippet}
+    {@render children()}
+  {:else}
+    {children}
+  {/if}
+  ```
+
+### Props (MANDATORY)
+- ❌ **NEVER** use `export let prop` (Svelte 4 - WILL NOT WORK)
+- ✅ **ALWAYS** use `let { prop1, prop2 } = $props();` (Svelte 5)
+- ✅ For two-way binding: `let { value = $bindable() } = $props();`
+- ✅ With defaults: `let { prop = 'default' } = $props();`
+
+### Reactive Declarations
+- ❌ **NEVER** use `$: value = ...` (Svelte 4 - deprecated)
+- ✅ **ALWAYS** use `$derived()` or `$effect()` (Svelte 5)
+
+**If you write Svelte 4 syntax, the code will not work. Always double-check for Svelte 5 patterns.**
 
 ## Configuration Files
 
