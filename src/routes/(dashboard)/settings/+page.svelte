@@ -114,30 +114,13 @@
 		<p class="text-gray-500">Manage your account settings</p>
 	</div>
 
-	<!-- Profile Information Card -->
+	<!-- Profile Card -->
 	<Card.Root>
 		<Card.Header>
-			<Card.Title>Profile Information</Card.Title>
-			<Card.Description>View your account details</Card.Description>
+			<Card.Title>Profile</Card.Title>
+			<Card.Description>Manage your profile information and avatar</Card.Description>
 		</Card.Header>
-		<Card.Content class="space-y-4">
-			<div class="flex items-center gap-4">
-				<UserAvatar user={$auth.user} size="lg" />
-				<div>
-					<p class="font-medium">{$auth.user?.name || 'No name set'}</p>
-					<p class="text-sm text-gray-500">{$auth.user?.email}</p>
-				</div>
-			</div>
-		</Card.Content>
-	</Card.Root>
-
-	<!-- Avatar Management Card -->
-	<Card.Root>
-		<Card.Header>
-			<Card.Title>Avatar</Card.Title>
-			<Card.Description>Upload or remove your profile picture</Card.Description>
-		</Card.Header>
-		<Card.Content class="space-y-4">
+		<Card.Content class="space-y-6">
 			{#if errorMessage}
 				<Alert.Root variant="destructive">
 					<Alert.Title>Error</Alert.Title>
@@ -151,49 +134,60 @@
 				</Alert.Root>
 			{/if}
 
-			<div class="flex items-center gap-4">
-				{#if avatarUrl}
-					<img src={avatarUrl} alt="Avatar preview" class="h-24 w-24 rounded-full object-cover" />
-				{:else}
-					<UserAvatar user={$auth.user} size="lg" />
-				{/if}
+			<!-- Avatar Section -->
+			<div class="space-y-2">
+				<Label>Profile Picture</Label>
+				<div class="flex items-center gap-4">
+					{#if avatarUrl}
+						<img src={avatarUrl} alt="Avatar preview" class="h-24 w-24 rounded-full object-cover" />
+					{:else}
+						<UserAvatar user={$auth.user} size="lg" />
+					{/if}
 
-				<div class="flex flex-col gap-2">
-					<input
-						type="file"
-						accept="image/*"
-						class="hidden"
-						bind:this={fileInput}
-						onchange={handleAvatarUpload}
-					/>
-					<Button
-						onclick={() => fileInput?.click()}
-						disabled={isUploading || isRemoving}
-						variant="outline"
-					>
-						{isUploading ? 'Uploading...' : 'Upload New Avatar'}
-					</Button>
-					{#if hasAvatar}
+					<div class="flex flex-col gap-2">
+						<input
+							type="file"
+							accept="image/*"
+							class="hidden"
+							bind:this={fileInput}
+							onchange={handleAvatarUpload}
+						/>
 						<Button
-							onclick={handleRemoveAvatar}
+							onclick={() => fileInput?.click()}
 							disabled={isUploading || isRemoving}
 							variant="outline"
+							size="sm"
 						>
-							{isRemoving ? 'Removing...' : 'Remove Avatar'}
+							{isUploading ? 'Uploading...' : 'Upload New Avatar'}
 						</Button>
-					{/if}
+						{#if hasAvatar}
+							<Button
+								onclick={handleRemoveAvatar}
+								disabled={isUploading || isRemoving}
+								variant="outline"
+								size="sm"
+							>
+								{isRemoving ? 'Removing...' : 'Remove Avatar'}
+							</Button>
+						{/if}
+					</div>
 				</div>
+				<p class="text-sm text-gray-500">Upload an image up to 5MB</p>
 			</div>
-		</Card.Content>
-	</Card.Root>
 
-	<!-- Profile Editing Card -->
-	<Card.Root>
-		<Card.Header>
-			<Card.Title>Edit Profile</Card.Title>
-			<Card.Description>Update your profile information</Card.Description>
-		</Card.Header>
-		<Card.Content class="space-y-4">
+			<!-- Email (Read-only) -->
+			<div class="space-y-2">
+				<Label for="email">Email</Label>
+				<Input
+					id="email"
+					type="email"
+					value={$auth.user?.email}
+					disabled
+					class="bg-gray-50"
+				/>
+			</div>
+
+			<!-- Name Input -->
 			<div class="space-y-2">
 				<Label for="name">Name</Label>
 				<Input
@@ -204,6 +198,8 @@
 					disabled={isSaving}
 				/>
 			</div>
+
+			<!-- Save Button -->
 			<Button onclick={handleSaveName} disabled={isSaving}>
 				{isSaving ? 'Saving...' : 'Save Changes'}
 			</Button>
