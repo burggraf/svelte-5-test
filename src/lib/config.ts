@@ -1,10 +1,21 @@
 // Runtime configuration loader
 export function getPocketBaseUrl(): string {
-	// Check for runtime config (production)
-	if (typeof window !== 'undefined' && (window as any).__APP_CONFIG__) {
-		return (window as any).__APP_CONFIG__.pocketbaseUrl;
+	// Only runs in browser
+	if (typeof window !== 'undefined') {
+		const protocol = window.location.protocol;
+		const hostname = window.location.hostname;
+
+		// HTTP = local development
+		if (protocol === 'http:') {
+			return 'http://localhost:8090';
+		}
+
+		// HTTPS = production (use current domain)
+		if (protocol === 'https:') {
+			return `https://${hostname}`;
+		}
 	}
 
-	// Fallback to environment variable (development)
-	return import.meta.env.PUBLIC_POCKETBASE_URL || 'http://localhost:8090';
+	// SSR fallback (should not be used since ssr = false)
+	return 'http://localhost:8090';
 }

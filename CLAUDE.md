@@ -41,9 +41,10 @@ npx shadcn-svelte@latest add [component-name]
 
 **PocketBase Integration:**
 - Singleton PocketBase client in `src/lib/stores/pocketbase.ts`
-- Runtime configuration via `static/config.js` (loaded in `app.html`)
-- Development: Uses `PUBLIC_POCKETBASE_URL` from `.env`
-- Production: Uses `window.__APP_CONFIG__.pocketbaseUrl` from `static/config.js`
+- URL automatically detected based on protocol in `src/lib/config.ts`:
+  - HTTP (`http://`) → Uses `http://localhost:8090` (local development)
+  - HTTPS (`https://`) → Uses current domain (assumes PocketBase runs on same domain)
+- No `.env` file or runtime config needed
 
 **Auth Store Pattern:**
 - `src/lib/stores/auth.ts` exports a Svelte store wrapping PocketBase authentication
@@ -140,32 +141,24 @@ npx shadcn-svelte@latest add [component-name]
 
 ## Configuration Files
 
-### Environment Variables
-```bash
-# .env (development only)
-PUBLIC_POCKETBASE_URL=http://localhost:8090
-```
+### PocketBase URL Configuration
+The PocketBase URL is automatically determined based on the protocol:
+- **Local Development (HTTP):** Automatically uses `http://localhost:8090`
+- **Production (HTTPS):** Automatically uses current domain (e.g., if deployed at `https://myapp.com`, PocketBase is assumed to be at `https://myapp.com`)
 
-### Runtime Config
-```javascript
-// static/config.js (for production)
-window.__APP_CONFIG__ = {
-  pocketbaseUrl: 'https://your-production-pb.com'
-};
-```
-
-This file is loaded in `app.html` before SvelteKit initializes, allowing runtime configuration without rebuilding.
+This assumes PocketBase runs on the same domain as your web app. No environment variables or runtime config files needed.
 
 ## Deployment
 
 **Target:** Cloudflare Pages or any static hosting
 
 **Build Process:**
-1. Update `static/config.js` with production PocketBase URL
-2. Run `npm run build`
-3. Deploy `build/` directory
-4. Deploy PocketBase separately (PocketHost, Fly.io, VPS, etc.)
-5. Configure CORS in PocketBase to allow your domain
+1. Run `npm run build`
+2. Deploy `build/` directory to your hosting service
+3. Deploy PocketBase to the same domain (or configure reverse proxy)
+4. PocketBase URL is automatically detected from the current domain
+
+**Important:** The app assumes PocketBase runs on the same domain as the web app. If using a different domain, update `src/lib/config.ts` to use a different URL for HTTPS connections.
 
 **Build Output:**
 - All routes prerendered as static HTML files
