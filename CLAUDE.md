@@ -75,11 +75,20 @@ npx shadcn-svelte@latest add [component-name]
 
 ### UI Component Architecture
 
+**⚠️ IMPORTANT: Use shadcn-svelte for ALL UI components**
+
+This project uses **shadcn-svelte exclusively** for all UI components. Do not use other UI libraries or create unstyled components from scratch.
+
 **shadcn-svelte:**
+- Built on top of **bits-ui** headless primitives (this is normal and expected)
 - Initialized with Tailwind v4 (Vite-based, not PostCSS)
 - Components in `src/lib/components/ui/`
 - Uses `tw-animate-css` for animations (not `tailwindcss-animate`)
 - Dark mode ready with custom variant: `@custom-variant dark (&:is(.dark *))`
+- Add new components with: `npx shadcn-svelte@latest add [component-name]`
+
+**Architecture Pattern:**
+shadcn-svelte components wrap bits-ui headless primitives with Tailwind styling. This is the correct architecture - you will see `import { Component } from "bits-ui"` in shadcn-svelte component files.
 
 **Custom Components:**
 - `user-avatar.svelte` - Avatar with initials fallback and color generation
