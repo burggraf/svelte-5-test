@@ -33,7 +33,7 @@
 	}
 </script>
 
-<div class="flex min-h-screen items-center justify-center bg-gray-50 p-4">
+<div class="flex min-h-screen items-center justify-center bg-gray-50 dark:bg-gray-950 p-4">
 	<Card.Root class="w-full max-w-md">
 		<Card.Header>
 			<Card.Title class="text-2xl">Reset Password</Card.Title>
@@ -73,8 +73,8 @@
 					{isLoading ? 'Sending...' : 'Send Reset Link'}
 				</Button>
 
-				<div class="text-center text-sm">
-					<a href="/login" class="text-blue-600 hover:underline">Back to Login</a>
+				<div class="text-center text-sm text-gray-700 dark:text-gray-300">
+					<a href="/login" class="text-blue-600 dark:text-blue-400 hover:underline">Back to Login</a>
 				</div>
 			</div>
 		</Card.Content>

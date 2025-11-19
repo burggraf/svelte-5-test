@@ -4,8 +4,8 @@
 
 <div class="space-y-6">
 	<div>
-		<h2 class="text-3xl font-bold tracking-tight">Analytics</h2>
-		<p class="text-gray-500">View your analytics and insights</p>
+		<h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Analytics</h2>
+		<p class="text-gray-500 dark:text-gray-400">View your analytics and insights</p>
 	</div>
 
 	<Card.Root>
@@ -14,7 +14,7 @@
 			<Card.Description>Analytics features will be available here</Card.Description>
 		</Card.Header>
 		<Card.Content>
-			<p class="text-gray-500">This page is under construction.</p>
+			<p class="text-gray-500 dark:text-gray-400">This page is under construction.</p>
 		</Card.Content>
 	</Card.Root>
 </div>
