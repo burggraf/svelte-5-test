@@ -28,8 +28,8 @@
 	<!-- Desktop Sidebar -->
 	<aside class="hidden md:flex md:w-64 md:flex-col bg-white dark:bg-gray-900 border-r dark:border-gray-800">
 		<!-- Logo -->
-		<div class="flex h-16 items-center border-b dark:border-gray-800 px-6">
-			<h1 class="text-xl font-bold text-gray-900 dark:text-white">Dashboard</h1>
+		<div class="flex h-11 items-center border-b dark:border-gray-800 px-6">
+			<h1 class="text-lg font-semibold text-gray-900 dark:text-white">Dashboard</h1>
 		</div>
 
 		<!-- Navigation -->
@@ -63,11 +63,11 @@
 	<!-- Main Content -->
 	<div class="flex flex-1 flex-col overflow-hidden">
 		<!-- Top Bar (Mobile) -->
-		<header class="flex h-16 items-center border-b dark:border-gray-800 bg-white dark:bg-gray-900 px-4 md:hidden">
+		<header class="flex h-11 items-center border-b dark:border-gray-800 bg-white dark:bg-gray-900 px-4 md:hidden">
 			<Button variant="ghost" size="icon" onclick={() => (mobileMenuOpen = true)}>
-				<Menu class="h-6 w-6" />
+				<Menu class="h-5 w-5" />
 			</Button>
-			<h1 class="ml-4 text-lg font-semibold text-gray-900 dark:text-white">Dashboard</h1>
+			<h1 class="ml-3 text-base font-semibold text-gray-900 dark:text-white">Dashboard</h1>
 		</header>
 
 		<!-- Content Area -->
@@ -82,8 +82,8 @@
 	<Sheet.Content side="left" class="w-64 p-0 bg-white dark:bg-gray-900">
 		<div class="flex h-full flex-col">
 			<!-- Logo -->
-			<div class="flex h-16 items-center border-b dark:border-gray-800 px-6">
-				<h1 class="text-xl font-bold text-gray-900 dark:text-white">Dashboard</h1>
+			<div class="flex h-11 items-center border-b dark:border-gray-800 px-6">
+				<h1 class="text-lg font-semibold text-gray-900 dark:text-white">Dashboard</h1>
 			</div>
 
 			<!-- Navigation -->
