@@ -55,7 +55,7 @@
 	type="file"
 	accept="image/*"
 	bind:this={fileInput}
-	on:change={handleAvatarUpload}
+	onchange={handleAvatarUpload}
 	class="hidden"
 />
 
@@ -74,7 +74,7 @@
 	<DropdownMenu.Content class="w-56" align="end">
 		<DropdownMenu.Label>My Account</DropdownMenu.Label>
 		<DropdownMenu.Separator />
-		<DropdownMenu.Item on:click={openFileDialog} disabled={isUploading}>
+		<DropdownMenu.Item onclick={openFileDialog} disabled={isUploading}>
 			<Upload class="mr-2 h-4 w-4" />
 			<span>{isUploading ? 'Uploading...' : 'Upload Avatar'}</span>
 		</DropdownMenu.Item>
@@ -83,7 +83,7 @@
 			<span>Profile Settings</span>
 		</DropdownMenu.Item>
 		<DropdownMenu.Separator />
-		<DropdownMenu.Item on:click={handleLogout}>
+		<DropdownMenu.Item onclick={handleLogout}>
 			<LogOut class="mr-2 h-4 w-4" />
 			<span>Logout</span>
 		</DropdownMenu.Item>

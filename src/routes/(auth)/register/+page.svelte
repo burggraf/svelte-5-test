@@ -8,7 +8,7 @@
 	import * as Alert from '$lib/components/ui/alert';
 
 	let email = '';
-	let username = '';
+	let name = '';
 	let password = '';
 	let passwordConfirm = '';
 	let error = '';
@@ -33,7 +33,7 @@
 		try {
 			await auth.register({
 				email,
-				username,
+				name,
 				password,
 				passwordConfirm
 			});
@@ -80,12 +80,12 @@
 				</div>
 
 				<div class="space-y-2">
-					<Label for="username">Username (optional)</Label>
+					<Label for="name">Name</Label>
 					<Input
-						id="username"
+						id="name"
 						type="text"
-						placeholder="johndoe"
-						bind:value={username}
+						placeholder="John Doe"
+						bind:value={name}
 						onkeypress={handleKeyPress}
 						disabled={isLoading}
 					/>
