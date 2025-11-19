@@ -1,8 +1,11 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import PageHeader from '$lib/components/ui/page-header.svelte';
+	import { Button } from '$lib/components/ui/button';
+	import { ArrowLeft } from 'lucide-svelte';
 	import { auth } from '$lib/stores/auth';
 	import UserAvatar from '$lib/components/user-avatar.svelte';
 	import * as Card from '$lib/components/ui/card';
-	import { Button } from '$lib/components/ui/button';
 	import { Input } from '$lib/components/ui/input';
 	import { Label } from '$lib/components/ui/label';
 	import * as Alert from '$lib/components/ui/alert';
@@ -108,12 +111,15 @@
 	let hasAvatar = $derived(!!$auth.user?.avatar);
 </script>
 
-<div class="space-y-6">
-	<div>
-		<h2 class="text-3xl font-bold tracking-tight">Settings</h2>
-		<p class="text-gray-500">Manage your account settings</p>
-	</div>
+<PageHeader title="Settings">
+	{#snippet leftActions()}
+		<Button variant="ghost" size="icon" onclick={() => goto('/')}>
+			<ArrowLeft class="h-5 w-5" />
+		</Button>
+	{/snippet}
+</PageHeader>
 
+<div class="p-6 space-y-6">
 	<!-- Profile Information Card -->
 	<Card.Root>
 		<Card.Header>
