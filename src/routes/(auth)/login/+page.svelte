@@ -33,7 +33,7 @@
 	}
 </script>
 
-<div class="flex min-h-screen items-center justify-center bg-gray-50 p-4">
+<div class="flex min-h-screen items-center justify-center bg-gray-50 dark:bg-gray-950 p-4">
 	<Card.Root class="w-full max-w-md">
 		<Card.Header>
 			<Card.Title class="text-2xl">Login</Card.Title>
@@ -75,15 +75,15 @@
 					{isLoading ? 'Logging in...' : 'Login'}
 				</Button>
 
-				<div class="text-center text-sm">
-					<a href="/reset-password" class="text-blue-600 hover:underline">
+				<div class="text-center text-sm text-gray-700 dark:text-gray-300">
+					<a href="/reset-password" class="text-blue-600 dark:text-blue-400 hover:underline">
 						Forgot password?
 					</a>
 				</div>
 
-				<div class="text-center text-sm">
+				<div class="text-center text-sm text-gray-700 dark:text-gray-300">
 					Don't have an account?
-					<a href="/register" class="text-blue-600 hover:underline">Register</a>
+					<a href="/register" class="text-blue-600 dark:text-blue-400 hover:underline">Register</a>
 				</div>
 			</div>
 		</Card.Content>

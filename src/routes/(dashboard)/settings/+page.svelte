@@ -110,8 +110,8 @@
 
 <div class="space-y-6">
 	<div>
-		<h2 class="text-3xl font-bold tracking-tight">Settings</h2>
-		<p class="text-gray-500">Manage your account settings</p>
+		<h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Settings</h2>
+		<p class="text-gray-500 dark:text-gray-400">Manage your account settings</p>
 	</div>
 
 	<!-- Profile Card -->
