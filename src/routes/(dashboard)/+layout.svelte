@@ -20,6 +20,12 @@
 	function isActive(href: string): boolean {
 		return $page.url.pathname === href;
 	}
+
+	// Get current page title for mobile header
+	let currentPageTitle = $derived(() => {
+		const currentItem = navItems.find((item) => item.href === $page.url.pathname);
+		return currentItem?.label || 'Dashboard';
+	});
 </script>
 
 <Toaster />
@@ -67,7 +73,7 @@
 			<Button variant="ghost" size="icon" onclick={() => (mobileMenuOpen = true)}>
 				<Menu class="h-5 w-5" />
 			</Button>
-			<h1 class="ml-3 text-base font-semibold text-gray-900 dark:text-white">Dashboard</h1>
+			<h1 class="ml-3 text-base font-semibold text-gray-900 dark:text-white">{currentPageTitle()}</h1>
 		</header>
 
 		<!-- Content Area -->
