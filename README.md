@@ -1,38 +1,174 @@
-# sv
+# Svelte 5 + PocketBase Dashboard
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A client-side only dashboard application built with Svelte 5, SvelteKit, and PocketBase for authentication and data management.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- 🔐 Complete authentication system (login, register, password reset)
+- 👤 User profiles with avatar upload
+- 📊 Dashboard with sidebar navigation
+- 📱 Responsive design (mobile + desktop)
+- 🎨 shadcn-svelte UI components
+- ⚡ Static site generation for Cloudflare Pages
 
-```sh
-# create a new project in the current directory
-npx sv create
+## Tech Stack
 
-# create a new project in my-app
-npx sv create my-app
+- **Framework:** SvelteKit with adapter-static
+- **UI Library:** shadcn-svelte (dashboard-07 template)
+- **Backend:** PocketBase 0.31.0
+- **Styling:** TailwindCSS + tailwindcss-animate
+- **Icons:** lucide-svelte
+- **Language:** TypeScript
+
+## Prerequisites
+
+- Node.js 18+
+- PocketBase 0.31.0
+
+## Getting Started
+
+### 1. Install Dependencies
+
+```bash
+npm install
 ```
 
-## Developing
+### 2. Start PocketBase
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+```bash
+pocketbase serve
+```
 
-```sh
+First time setup:
+1. Navigate to http://localhost:8090/_/
+2. Create superuser account
+3. Configure users collection for avatars (already done if following setup)
+
+### 3. Start Development Server
+
+```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+Navigate to http://localhost:5173
 
-To create a production version of your app:
+## Project Structure
 
-```sh
+```
+src/
+  lib/
+    components/
+      ui/              # shadcn-svelte components
+      sidebar-user.svelte
+      user-avatar.svelte
+    stores/
+      auth.ts          # Authentication store
+      pocketbase.ts    # PocketBase client
+    config.ts          # Runtime config loader
+  routes/
+    (auth)/            # Public auth pages
+      login/
+      register/
+      reset-password/
+    (dashboard)/       # Protected dashboard pages
+      +layout.svelte   # Dashboard shell
+      +page.svelte     # Home
+      analytics/
+      documents/
+      settings/
+static/
+  config.js            # Runtime PocketBase URL
+```
+
+## Configuration
+
+### Development
+
+Create `.env`:
+
+```bash
+PUBLIC_POCKETBASE_URL=http://localhost:8090
+```
+
+### Production
+
+Edit `static/config.js`:
+
+```javascript
+window.__APP_CONFIG__ = {
+  pocketbaseUrl: 'https://your-production-pb.com'
+};
+```
+
+## Building for Production
+
+```bash
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+Output: `build/` directory (static files)
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Deployment (Cloudflare Pages)
+
+1. Build command: `npm run build`
+2. Build output directory: `build`
+3. Update `static/config.js` with production PocketBase URL before building
+
+## PocketBase Setup
+
+### Users Collection Configuration
+
+The users collection (auth collection) needs avatar field configured:
+- Type: File
+- Max Select: 1
+- Max Size: 5MB
+- Mime Types: image/jpeg, image/png, image/gif, image/webp
+
+### CORS Configuration
+
+For production, configure PocketBase CORS to allow your domain:
+
+```
+Settings → Application → CORS
+```
+
+## Features Implemented
+
+- ✅ User registration with email/password
+- ✅ User login
+- ✅ Password reset flow
+- ✅ Avatar upload (5MB max, images only)
+- ✅ Protected dashboard routes
+- ✅ Responsive sidebar navigation
+- ✅ User dropdown menu
+- ✅ Toast notifications
+- ✅ Static site generation
+
+## Features To Add
+
+- [ ] Profile settings page
+- [ ] Email verification flow
+- [ ] Multi-factor authentication
+- [ ] Dark mode toggle
+- [ ] Data tables/CRUD operations
+- [ ] Real analytics
+- [ ] Document management
+
+## Development
+
+### Adding shadcn Components
+
+```bash
+npx shadcn-svelte@latest add [component-name]
+```
+
+### Project Scripts
+
+- `npm run dev` - Start dev server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run check` - Run svelte-check
+
+## License
+
+MIT
