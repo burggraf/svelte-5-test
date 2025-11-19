@@ -52,7 +52,7 @@
 	}
 </script>
 
-<div class="flex min-h-screen items-center justify-center bg-gray-50 p-4">
+<div class="flex min-h-screen items-center justify-center bg-gray-50 dark:bg-gray-950 p-4">
 	<Card.Root class="w-full max-w-md">
 		<Card.Header>
 			<Card.Title class="text-2xl">Create Account</Card.Title>
@@ -121,9 +121,9 @@
 					{isLoading ? 'Creating account...' : 'Register'}
 				</Button>
 
-				<div class="text-center text-sm">
+				<div class="text-center text-sm text-gray-700 dark:text-gray-300">
 					Already have an account?
-					<a href="/login" class="text-blue-600 hover:underline">Login</a>
+					<a href="/login" class="text-blue-600 dark:text-blue-400 hover:underline">Login</a>
 				</div>
 			</div>
 		</Card.Content>
