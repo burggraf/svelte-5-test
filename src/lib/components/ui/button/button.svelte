@@ -53,6 +53,8 @@
 		children,
 		...restProps
 	}: ButtonProps = $props();
+
+	const isSnippet = children && typeof children === 'function';
 </script>
 
 {#if href}
@@ -66,7 +68,11 @@
 		tabindex={disabled ? -1 : undefined}
 		{...restProps}
 	>
-		{@render children?.()}
+		{#if isSnippet}
+			{@render children()}
+		{:else}
+			{children}
+		{/if}
 	</a>
 {:else}
 	<button
@@ -77,6 +83,10 @@
 		{disabled}
 		{...restProps}
 	>
-		{@render children?.()}
+		{#if isSnippet}
+			{@render children()}
+		{:else}
+			{children}
+		{/if}
 	</button>
 {/if}

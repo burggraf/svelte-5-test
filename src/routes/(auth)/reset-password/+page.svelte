@@ -64,12 +64,12 @@
 						type="email"
 						placeholder="you@example.com"
 						bind:value={email}
-						on:keypress={handleKeyPress}
+						onkeypress={handleKeyPress}
 						disabled={isLoading || success}
 					/>
 				</div>
 
-				<Button class="w-full" on:click={handleReset} disabled={isLoading || success}>
+				<Button class="w-full" onclick={handleReset} disabled={isLoading || success}>
 					{isLoading ? 'Sending...' : 'Send Reset Link'}
 				</Button>
 

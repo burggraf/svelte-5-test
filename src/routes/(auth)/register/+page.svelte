@@ -73,7 +73,7 @@
 						type="email"
 						placeholder="you@example.com"
 						bind:value={email}
-						on:keypress={handleKeyPress}
+						onkeypress={handleKeyPress}
 						disabled={isLoading}
 						required
 					/>
@@ -86,7 +86,7 @@
 						type="text"
 						placeholder="johndoe"
 						bind:value={username}
-						on:keypress={handleKeyPress}
+						onkeypress={handleKeyPress}
 						disabled={isLoading}
 					/>
 				</div>
@@ -98,7 +98,7 @@
 						type="password"
 						placeholder="••••••••"
 						bind:value={password}
-						on:keypress={handleKeyPress}
+						onkeypress={handleKeyPress}
 						disabled={isLoading}
 						required
 					/>
@@ -111,13 +111,13 @@
 						type="password"
 						placeholder="••••••••"
 						bind:value={passwordConfirm}
-						on:keypress={handleKeyPress}
+						onkeypress={handleKeyPress}
 						disabled={isLoading}
 						required
 					/>
 				</div>
 
-				<Button class="w-full" on:click={handleRegister} disabled={isLoading}>
+				<Button class="w-full" onclick={handleRegister} disabled={isLoading}>
 					{isLoading ? 'Creating account...' : 'Register'}
 				</Button>
 

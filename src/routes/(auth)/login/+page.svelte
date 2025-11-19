@@ -54,7 +54,7 @@
 						type="email"
 						placeholder="you@example.com"
 						bind:value={email}
-						on:keypress={handleKeyPress}
+						onkeypress={handleKeyPress}
 						disabled={isLoading}
 					/>
 				</div>
@@ -66,12 +66,12 @@
 						type="password"
 						placeholder="••••••••"
 						bind:value={password}
-						on:keypress={handleKeyPress}
+						onkeypress={handleKeyPress}
 						disabled={isLoading}
 					/>
 				</div>
 
-				<Button class="w-full" on:click={handleLogin} disabled={isLoading}>
+				<Button class="w-full" onclick={handleLogin} disabled={isLoading}>
 					{isLoading ? 'Logging in...' : 'Login'}
 				</Button>
 
