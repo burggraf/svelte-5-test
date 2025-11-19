@@ -10,14 +10,14 @@
 </script>
 
 <header class="sticky top-0 z-50 bg-background border-b">
-	<div class="flex items-center justify-between h-16 px-4">
+	<div class="flex items-center justify-between h-11 px-4">
 		<div class="flex items-center gap-2">
 			{#if hasLeftActions}
 				{@render leftActions()}
 			{/if}
 		</div>
 
-		<h1 class="text-lg md:text-xl font-semibold absolute left-1/2 -translate-x-1/2">
+		<h1 class="text-[17px] font-semibold absolute left-1/2 -translate-x-1/2">
 			{title}
 		</h1>
 
