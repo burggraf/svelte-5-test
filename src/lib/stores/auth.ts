@@ -115,6 +115,21 @@ function createAuthStore() {
 		}
 	}
 
+	async function removeAvatar() {
+		update((state) => ({ ...state, isLoading: true, error: null }));
+		try {
+			const record = await pb.collection('users').update(pb.authStore.model?.id || '', {
+				avatar: null
+			});
+			update((state) => ({ ...state, user: record, isLoading: false }));
+			return record;
+		} catch (err: any) {
+			const errorMessage = err?.response?.message || 'Failed to remove avatar';
+			update((state) => ({ ...state, isLoading: false, error: errorMessage }));
+			throw err;
+		}
+	}
+
 	// Initialize on load
 	init();
 
@@ -125,7 +140,8 @@ function createAuthStore() {
 		logout,
 		requestPasswordReset,
 		uploadAvatar,
-		updateProfile
+		updateProfile,
+		removeAvatar
 	};
 }
 
