@@ -6,6 +6,7 @@
 	import Label from '$lib/components/ui/label/label.svelte';
 	import * as Card from '$lib/components/ui/card';
 	import * as Alert from '$lib/components/ui/alert';
+	import ThemeToggle from '$lib/components/theme-toggle.svelte';
 
 	let email = '';
 	let password = '';
@@ -33,7 +34,8 @@
 	}
 </script>
 
-<div class="flex min-h-screen items-center justify-center bg-gray-50 dark:bg-gray-950 p-4">
+<div class="relative flex min-h-screen items-center justify-center bg-gray-50 dark:bg-gray-950 p-4">
+	<ThemeToggle variant="icon" class="absolute top-4 right-4 z-10" />
 	<Card.Root class="w-full max-w-md">
 		<Card.Header>
 			<Card.Title class="text-2xl">Login</Card.Title>
