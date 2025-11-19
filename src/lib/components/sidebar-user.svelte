@@ -4,6 +4,7 @@
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import { LogOut, Upload, User } from 'lucide-svelte';
 	import { toast } from 'svelte-sonner';
+	import { goto } from '$app/navigation';
 
 	let fileInput: HTMLInputElement;
 	let isUploading = false;
@@ -46,6 +47,10 @@
 		fileInput?.click();
 	}
 
+	function handleProfileSettings() {
+		goto('/settings');
+	}
+
 	function handleLogout() {
 		auth.logout();
 	}
@@ -78,7 +83,7 @@
 			<Upload class="mr-2 h-4 w-4" />
 			<span>{isUploading ? 'Uploading...' : 'Upload Avatar'}</span>
 		</DropdownMenu.Item>
-		<DropdownMenu.Item>
+		<DropdownMenu.Item onclick={handleProfileSettings}>
 			<User class="mr-2 h-4 w-4" />
 			<span>Profile Settings</span>
 		</DropdownMenu.Item>
