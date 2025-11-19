@@ -1,9 +1,12 @@
 <script lang="ts">
+	import PageHeader from '$lib/components/ui/page-header.svelte';
 	import * as Card from '$lib/components/ui/card';
 	import { Users, FileText, BarChart3, Settings } from 'lucide-svelte';
 </script>
 
-<div class="space-y-6">
+<PageHeader title="Dashboard" />
+
+<div class="p-6 space-y-6">
 	<div>
 		<h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Welcome back!</h2>
 		<p class="text-gray-500 dark:text-gray-400">Here's what's happening with your account today.</p>
