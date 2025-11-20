@@ -1,6 +1,7 @@
 <script lang="ts">
 	import SidebarUser from '$lib/components/sidebar-user.svelte';
 	import ThemeToggle from '$lib/components/theme-toggle.svelte';
+	import ColorSchemeChooser from '$lib/components/color-scheme-chooser.svelte';
 	import { page } from '$app/stores';
 	import * as Sheet from '$lib/components/ui/sheet';
 	import Button from '$lib/components/ui/button/button.svelte';
@@ -55,8 +56,9 @@
 			{/each}
 		</nav>
 
-		<!-- Theme Toggle Footer -->
-		<div class="border-t dark:border-gray-800 p-3">
+		<!-- Theme Settings Footer -->
+		<div class="border-t dark:border-gray-800 p-3 space-y-1">
+			<ColorSchemeChooser />
 			<ThemeToggle />
 		</div>
 
@@ -110,8 +112,9 @@
 				{/each}
 			</nav>
 
-			<!-- Theme Toggle Footer -->
-			<div class="border-t dark:border-gray-800 p-3">
+			<!-- Theme Settings Footer -->
+			<div class="border-t dark:border-gray-800 p-3 space-y-1">
+				<ColorSchemeChooser />
 				<ThemeToggle />
 			</div>
 
