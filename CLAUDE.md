@@ -107,7 +107,7 @@ shadcn-svelte components wrap bits-ui headless primitives with Tailwind styling.
 **Users Collection (Auth Collection):**
 - Standard PocketBase auth fields (email, username, verified)
 - Custom field: `avatar` (File type, 1 max, 5MB, image/* only)
-- Files served via `pb.files.getUrl(user, user.avatar)`
+- Files served via `pb.files.getURL(user, user.avatar)`
 
 ## ⚠️ CRITICAL: Svelte 5 Syntax ONLY
 

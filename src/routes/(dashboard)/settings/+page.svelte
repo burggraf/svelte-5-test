@@ -104,7 +104,7 @@
 
 	function getAvatarUrl(): string | null {
 		if (!$auth.user?.avatar) return null;
-		return pb.files.getUrl($auth.user, $auth.user.avatar, { thumb: '200x200' });
+		return pb.files.getURL($auth.user, $auth.user.avatar, { thumb: '200x200' });
 	}
 
 	let avatarUrl = $derived(getAvatarUrl());

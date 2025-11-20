@@ -13,7 +13,7 @@
 
 	function getAvatarUrl(user: RecordModel | null): string | null {
 		if (!user?.avatar) return null;
-		return pb.files.getUrl(user, user.avatar, { thumb: '100x100' });
+		return pb.files.getURL(user, user.avatar, { thumb: '100x100' });
 	}
 
 	function getInitials(user: RecordModel | null): string {
