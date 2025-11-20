@@ -98,7 +98,7 @@ Replace the entire contents of `src/lib/components/theme-toggle.svelte` with:
 
 ### Step 2: Verify component still works in dashboard
 
-Run: `npm run check`
+Run: `pnpm run check`
 
 Expected: No new errors (existing warnings about `<svelte:component>` are OK)
 
@@ -161,7 +161,7 @@ Replace line 36 in `src/routes/(auth)/login/+page.svelte` (the outer `<div>`) wi
 
 ### Step 3: Verify no type errors
 
-Run: `npm run check`
+Run: `pnpm run check`
 
 Expected: No new errors
 
@@ -219,7 +219,7 @@ Replace line 55 in `src/routes/(auth)/register/+page.svelte` (the outer `<div>`)
 
 ### Step 3: Verify no type errors
 
-Run: `npm run check`
+Run: `pnpm run check`
 
 Expected: No new errors
 
@@ -276,7 +276,7 @@ Replace line 36 in `src/routes/(auth)/reset-password/+page.svelte` (the outer `<
 
 ### Step 3: Verify no type errors
 
-Run: `npm run check`
+Run: `pnpm run check`
 
 Expected: No new errors, all auth pages now have theme toggle
 
@@ -304,7 +304,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>"
 
 ### Step 1: Start dev server
 
-Run: `npm run dev`
+Run: `pnpm run dev`
 
 Expected: Dev server starts on http://localhost:5173
 

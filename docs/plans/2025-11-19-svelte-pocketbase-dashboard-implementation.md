@@ -19,7 +19,7 @@
 **Step 1: Create SvelteKit project**
 
 ```bash
-npm create svelte@latest . -- --template skeleton --types typescript --no-prettier --no-eslint --no-playwright --no-vitest
+pnpm create svelte@latest . -- --template skeleton --types typescript --no-prettier --no-eslint --no-playwright --no-vitest
 ```
 
 Expected: Project scaffolded with TypeScript support
@@ -27,7 +27,7 @@ Expected: Project scaffolded with TypeScript support
 **Step 2: Install dependencies**
 
 ```bash
-npm install
+pnpm install
 ```
 
 Expected: Dependencies installed successfully
@@ -35,7 +35,7 @@ Expected: Dependencies installed successfully
 **Step 3: Install adapter-static**
 
 ```bash
-npm install -D @sveltejs/adapter-static
+pnpm install -D @sveltejs/adapter-static
 ```
 
 Expected: adapter-static installed
@@ -86,7 +86,7 @@ EOF
 **Step 6: Test dev server**
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Expected: Dev server starts on port 5173, no errors
@@ -110,7 +110,7 @@ git commit -m "chore: initialize SvelteKit project with adapter-static"
 **Step 1: Install TailwindCSS**
 
 ```bash
-npm install -D tailwindcss postcss autoprefixer tailwindcss-animate
+pnpm install -D tailwindcss postcss autoprefixer tailwindcss-animate
 npx tailwindcss init -p
 ```
 
@@ -166,7 +166,7 @@ Modify `src/routes/+page.svelte`:
 **Step 6: Run dev server and verify**
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Expected: Blue text "Tailwind Works!" centered on page
@@ -224,7 +224,7 @@ git commit -m "chore: initialize shadcn-svelte with default theme"
 **Step 1: Install PocketBase SDK**
 
 ```bash
-npm install pocketbase
+pnpm install pocketbase
 ```
 
 Expected: pocketbase ^0.21.0 installed
@@ -232,7 +232,7 @@ Expected: pocketbase ^0.21.0 installed
 **Step 2: Install additional UI dependencies**
 
 ```bash
-npm install bits-ui lucide-svelte
+pnpm install bits-ui lucide-svelte
 ```
 
 Expected: bits-ui and lucide-svelte installed
@@ -240,7 +240,7 @@ Expected: bits-ui and lucide-svelte installed
 **Step 3: Verify installations**
 
 ```bash
-npm list pocketbase bits-ui lucide-svelte
+pnpm list pocketbase bits-ui lucide-svelte
 ```
 
 Expected: All packages listed with versions
@@ -690,7 +690,7 @@ Create `src/routes/(auth)/login/+page.svelte`:
 **Step 3: Test login page**
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Navigate to http://localhost:5173/login
@@ -852,7 +852,7 @@ Create `src/routes/(auth)/register/+page.svelte`:
 **Step 2: Test register page**
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Navigate to http://localhost:5173/register
@@ -965,7 +965,7 @@ Create `src/routes/(auth)/reset-password/+page.svelte`:
 **Step 2: Test password reset page**
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Navigate to http://localhost:5173/reset-password
@@ -1473,7 +1473,7 @@ Create `src/routes/(dashboard)/+page.svelte`:
 **Step 4: Test dashboard**
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Navigate to http://localhost:5173 (should redirect to login if not authenticated)
@@ -1577,7 +1577,7 @@ export const ssr = false;
 **Step 2: Test build**
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 Expected: Build completes without errors, outputs to `build/`
@@ -1585,7 +1585,7 @@ Expected: Build completes without errors, outputs to `build/`
 **Step 3: Preview production build**
 
 ```bash
-npm run preview
+pnpm run preview
 ```
 
 Expected: Production preview runs, app works correctly
@@ -1698,7 +1698,7 @@ Create `src/routes/(dashboard)/settings/+page.svelte`:
 **Step 4: Test navigation**
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Click through all navigation items in sidebar
@@ -1801,7 +1801,7 @@ A client-side only dashboard application built with Svelte 5, SvelteKit, and Poc
 ### 1. Install Dependencies
 
 \`\`\`bash
-npm install
+pnpm install
 \`\`\`
 
 ### 2. Start PocketBase
@@ -1818,7 +1818,7 @@ First time setup:
 ### 3. Start Development Server
 
 \`\`\`bash
-npm run dev
+pnpm run dev
 \`\`\`
 
 Navigate to http://localhost:5173
@@ -1874,14 +1874,14 @@ window.__APP_CONFIG__ = {
 ## Building for Production
 
 \`\`\`bash
-npm run build
+pnpm run build
 \`\`\`
 
 Output: \`build/\` directory (static files)
 
 ## Deployment (Cloudflare Pages)
 
-1. Build command: \`npm run build\`
+1. Build command: \`pnpm run build\`
 2. Build output directory: \`build\`
 3. Update \`static/config.js\` with production PocketBase URL before building
 
@@ -1935,10 +1935,10 @@ npx shadcn-svelte@latest add [component-name]
 
 ### Project Scripts
 
-- \`npm run dev\` - Start dev server
-- \`npm run build\` - Build for production
-- \`npm run preview\` - Preview production build
-- \`npm run check\` - Run svelte-check
+- \`pnpm run dev\` - Start dev server
+- \`pnpm run build\` - Build for production
+- \`pnpm run preview\` - Preview production build
+- \`pnpm run check\` - Run svelte-check
 
 ## License
 
@@ -1948,7 +1948,7 @@ MIT
 **Step 2: Final build test**
 
 ```bash
-npm run build && npm run preview
+pnpm run build && pnpm run preview
 ```
 
 Expected: Build succeeds, preview works, all features functional

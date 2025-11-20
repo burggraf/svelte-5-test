@@ -54,7 +54,7 @@ Create `src/lib/components/ui/page-header.svelte` with the following content:
 
 **Step 2: Verify component syntax**
 
-Run: `npm run check`
+Run: `pnpm run check`
 
 Expected: No new errors (baseline has 2 warnings in dashboard layout)
 
@@ -158,13 +158,13 @@ Replace the content of `src/routes/(dashboard)/+page.svelte` with:
 
 **Step 2: Verify changes**
 
-Run: `npm run check`
+Run: `pnpm run check`
 
 Expected: No new errors
 
 **Step 3: Test manually**
 
-Run: `npm run dev`
+Run: `pnpm run dev`
 
 1. Navigate to `http://localhost:5173/`
 2. Verify PageHeader appears with "Dashboard" title centered
@@ -207,7 +207,7 @@ Replace the content of `src/routes/(dashboard)/analytics/+page.svelte` with:
 
 **Step 2: Verify changes**
 
-Run: `npm run check`
+Run: `pnpm run check`
 
 Expected: No new errors
 
@@ -246,7 +246,7 @@ Replace the content of `src/routes/(dashboard)/documents/+page.svelte` with:
 
 **Step 2: Verify changes**
 
-Run: `npm run check`
+Run: `pnpm run check`
 
 Expected: No new errors
 
@@ -494,13 +494,13 @@ Replace the content of `src/routes/(dashboard)/settings/+page.svelte` with:
 
 **Step 2: Verify changes**
 
-Run: `npm run check`
+Run: `pnpm run check`
 
 Expected: No new errors
 
 **Step 3: Test manually**
 
-Run: `npm run dev` (if not already running)
+Run: `pnpm run dev` (if not already running)
 
 1. Navigate to `http://localhost:5173/settings`
 2. Verify PageHeader appears with "Settings" title centered
@@ -529,13 +529,13 @@ git commit -m "feat(settings): add PageHeader with back button
 
 **Step 1: Run type checking**
 
-Run: `npm run check`
+Run: `pnpm run check`
 
 Expected: 0 errors, 2 pre-existing warnings (svelte:component deprecation in dashboard layout)
 
 **Step 2: Manual testing - All pages**
 
-Run: `npm run dev`
+Run: `pnpm run dev`
 
 Test each page:
 

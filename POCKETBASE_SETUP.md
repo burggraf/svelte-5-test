@@ -29,7 +29,7 @@
 
 5. **Testing the Complete Flow**
    - Start PocketBase: `pocketbase serve`
-   - Start dev server: `npm run dev`
+   - Start dev server: `pnpm run dev`
    - Navigate to http://localhost:5173
    - Register a new user account
    - Login with the account

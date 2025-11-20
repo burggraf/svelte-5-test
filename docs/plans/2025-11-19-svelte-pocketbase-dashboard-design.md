@@ -225,7 +225,7 @@ pocketbase serve
 
 ### 2. Development Server
 ```bash
-npm run dev
+pnpm run dev
 ```
 - SvelteKit dev server on port 5173
 - Config points to `http://localhost:8090`
@@ -241,14 +241,14 @@ PUBLIC_POCKETBASE_URL=http://localhost:8090
 
 ### Build Process
 ```bash
-npm run build
+pnpm run build
 ```
 - Outputs to `build/` directory
 - All routes prerendered as static HTML
 - Auth routes use client-side hydration
 
 ### Cloudflare Pages Configuration
-- **Build command:** `npm run build`
+- **Build command:** `pnpm run build`
 - **Build output directory:** `build`
 - **Environment variables:** Not required (uses runtime config)
 

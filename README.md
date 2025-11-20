@@ -30,7 +30,7 @@ A client-side only dashboard application built with Svelte 5, SvelteKit, and Poc
 ### 1. Install Dependencies
 
 ```bash
-npm install
+pnpm install
 ```
 
 ### 2. Start PocketBase
@@ -47,7 +47,7 @@ First time setup:
 ### 3. Start Development Server
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Navigate to http://localhost:5173
@@ -103,14 +103,14 @@ window.__APP_CONFIG__ = {
 ## Building for Production
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 Output: `build/` directory (static files)
 
 ## Deployment (Cloudflare Pages)
 
-1. Build command: `npm run build`
+1. Build command: `pnpm run build`
 2. Build output directory: `build`
 3. Update `static/config.js` with production PocketBase URL before building
 
@@ -164,10 +164,10 @@ npx shadcn-svelte@latest add [component-name]
 
 ### Project Scripts
 
-- `npm run dev` - Start dev server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run check` - Run svelte-check
+- `pnpm run dev` - Start dev server
+- `pnpm run build` - Build for production
+- `pnpm run preview` - Preview production build
+- `pnpm run check` - Run svelte-check
 
 ## License
 

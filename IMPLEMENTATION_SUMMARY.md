@@ -151,12 +151,12 @@
 ### For Local Development:
 1. Create PocketBase superuser account
 2. Configure users collection avatar field
-3. Start development server: `npm run dev`
+3. Start development server: `pnpm run dev`
 4. Test complete user flow
 
 ### For Production Deployment:
 1. Update `static/config.js` with production PocketBase URL
-2. Run `npm run build`
+2. Run `pnpm run build`
 3. Deploy `build/` directory to Cloudflare Pages
 4. Configure CORS in PocketBase for production domain
 5. Deploy PocketBase to production (PocketHost, Fly.io, etc.)
@@ -175,7 +175,7 @@ To complete testing, perform these steps:
 - [ ] Test logout functionality
 - [ ] Login again and verify avatar persists
 - [ ] Test password reset flow
-- [ ] Test production build: `npm run build && npm run preview`
+- [ ] Test production build: `pnpm run build && pnpm run preview`
 - [ ] Verify all routes work in preview
 
 ## Final Notes

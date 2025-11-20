@@ -55,7 +55,7 @@ return {
 
 **Step 3: Verify with type check**
 
-Run: `npm run check`
+Run: `pnpm run check`
 Expected: Pass with 0 errors (may have pre-existing warnings)
 
 **Step 4: Commit**
@@ -293,12 +293,12 @@ Replace the entire contents of `src/routes/(dashboard)/settings/+page.svelte`:
 
 **Step 2: Verify with type check**
 
-Run: `npm run check`
+Run: `pnpm run check`
 Expected: Pass with 0 errors
 
 **Step 3: Test in browser**
 
-1. Run: `npm run dev` (if not already running)
+1. Run: `pnpm run dev` (if not already running)
 2. Navigate to `http://localhost:5173/settings`
 3. Verify all three cards render
 4. Verify profile info displays correctly
@@ -444,7 +444,7 @@ Expected: All Svelte 5 patterns correctly used
 
 **Step 2: Run type check**
 
-Run: `npm run check`
+Run: `pnpm run check`
 Expected: Pass with 0 errors (pre-existing warnings okay)
 
 ---

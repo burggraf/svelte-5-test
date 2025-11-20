@@ -12,15 +12,15 @@ This is a **Svelte 5** + PocketBase dashboard application configured for **stati
 
 ### Development
 ```bash
-npm run dev              # Start Vite dev server (http://localhost:5173)
+pnpm run dev              # Start Vite dev server (http://localhost:5173)
 pocketbase serve         # Start PocketBase backend (http://localhost:8090)
-npm run check            # Run svelte-check for type checking
+pnpm run check            # Run svelte-check for type checking
 ```
 
 ### Building
 ```bash
-npm run build           # Build static site to build/ directory
-npm run preview         # Preview production build locally
+pnpm run build           # Build static site to build/ directory
+pnpm run preview         # Preview production build locally
 ```
 
 ### Adding UI Components
@@ -162,7 +162,7 @@ This assumes PocketBase runs on the same domain as your web app. No environment 
 **Target:** Cloudflare Pages or any static hosting
 
 **Build Process:**
-1. Run `npm run build`
+1. Run `pnpm run build`
 2. Deploy `build/` directory to your hosting service
 3. Deploy PocketBase to the same domain (or configure reverse proxy)
 4. PocketBase URL is automatically detected from the current domain
