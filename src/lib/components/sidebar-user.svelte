@@ -67,12 +67,12 @@
 <DropdownMenu.Root>
 	<DropdownMenu.Trigger class="w-full">
 		<div
-			class="flex w-full items-center gap-3 rounded-lg p-2 hover:bg-gray-100 transition-colors"
+			class="flex w-full items-center gap-3 rounded-lg p-2 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
 		>
 			<UserAvatar {user} size="md" />
 			<div class="flex-1 text-left overflow-hidden">
-				<p class="text-sm font-medium truncate">{displayName}</p>
-				<p class="text-xs text-gray-500 truncate">{displayEmail}</p>
+				<p class="text-sm font-medium truncate dark:text-white">{displayName}</p>
+				<p class="text-xs text-gray-500 dark:text-gray-400 truncate">{displayEmail}</p>
 			</div>
 		</div>
 	</DropdownMenu.Trigger>

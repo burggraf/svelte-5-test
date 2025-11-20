@@ -50,7 +50,7 @@
 						? 'bg-primary text-primary-foreground font-medium'
 						: 'text-foreground/70 hover:bg-accent hover:text-accent-foreground'}"
 				>
-					<svelte:component this={item.icon} class="h-5 w-5" />
+					<item.icon class="h-5 w-5" />
 					{item.label}
 				</a>
 			{/each}
@@ -106,7 +106,7 @@
 							? 'bg-primary text-primary-foreground font-medium'
 							: 'text-foreground/70 hover:bg-accent hover:text-accent-foreground'}"
 					>
-						<svelte:component this={item.icon} class="h-5 w-5" />
+						<item.icon class="h-5 w-5" />
 						{item.label}
 					</a>
 				{/each}
