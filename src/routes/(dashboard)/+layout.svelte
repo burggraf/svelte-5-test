@@ -31,12 +31,12 @@
 
 <Toaster />
 
-<div class="flex h-screen overflow-hidden bg-gray-50">
+<div class="flex h-screen overflow-hidden bg-background">
 	<!-- Desktop Sidebar -->
-	<aside class="hidden md:flex md:w-64 md:flex-col bg-white dark:bg-gray-900 border-r dark:border-gray-800">
+	<aside class="hidden md:flex md:w-64 md:flex-col bg-card border-r border-border">
 		<!-- Logo -->
-		<div class="flex h-11 items-center border-b dark:border-gray-800 px-6">
-			<h1 class="text-lg font-semibold text-gray-900 dark:text-white">Dashboard</h1>
+		<div class="flex h-11 items-center border-b border-border px-6">
+			<h1 class="text-lg font-semibold text-foreground">Dashboard</h1>
 		</div>
 
 		<!-- Navigation -->
@@ -47,8 +47,8 @@
 					class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors {isActive(
 						item.href
 					)
-						? 'bg-blue-50 text-blue-600 font-medium dark:bg-blue-950 dark:text-blue-400'
-						: 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'}"
+						? 'bg-primary text-primary-foreground font-medium'
+						: 'text-foreground/70 hover:bg-accent hover:text-accent-foreground'}"
 				>
 					<svelte:component this={item.icon} class="h-5 w-5" />
 					{item.label}
@@ -57,13 +57,13 @@
 		</nav>
 
 		<!-- Theme Settings Footer -->
-		<div class="border-t dark:border-gray-800 p-3 space-y-1">
+		<div class="border-t border-border p-3 space-y-1">
 			<ColorSchemeChooser />
 			<ThemeToggle />
 		</div>
 
 		<!-- User Component -->
-		<div class="border-t dark:border-gray-800 p-3">
+		<div class="border-t border-border p-3">
 			<SidebarUser />
 		</div>
 	</aside>
@@ -71,15 +71,15 @@
 	<!-- Main Content -->
 	<div class="flex flex-1 flex-col overflow-hidden">
 		<!-- Top Bar (Mobile) -->
-		<header class="flex h-11 items-center border-b dark:border-gray-800 bg-white dark:bg-gray-900 px-4 md:hidden">
+		<header class="flex h-11 items-center border-b border-border bg-card px-4 md:hidden">
 			<Button variant="ghost" size="icon" onclick={() => (mobileMenuOpen = true)}>
 				<Menu class="h-5 w-5" />
 			</Button>
-			<h1 class="ml-3 text-base font-semibold text-gray-900 dark:text-white">{currentPageTitle()}</h1>
+			<h1 class="ml-3 text-base font-semibold text-foreground">{currentPageTitle()}</h1>
 		</header>
 
 		<!-- Content Area -->
-		<main class="flex-1 overflow-y-auto p-4 md:p-6 bg-gray-50 dark:bg-gray-950">
+		<main class="flex-1 overflow-y-auto p-4 md:p-6 bg-background">
 			{@render children()}
 		</main>
 	</div>
@@ -87,11 +87,11 @@
 
 <!-- Mobile Sidebar -->
 <Sheet.Root bind:open={mobileMenuOpen}>
-	<Sheet.Content side="left" class="w-64 p-0 bg-white dark:bg-gray-900">
+	<Sheet.Content side="left" class="w-64 p-0 bg-card">
 		<div class="flex h-full flex-col">
 			<!-- Logo -->
-			<div class="flex h-11 items-center border-b dark:border-gray-800 px-6">
-				<h1 class="text-lg font-semibold text-gray-900 dark:text-white">Dashboard</h1>
+			<div class="flex h-11 items-center border-b border-border px-6">
+				<h1 class="text-lg font-semibold text-foreground">Dashboard</h1>
 			</div>
 
 			<!-- Navigation -->
@@ -103,8 +103,8 @@
 						class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors {isActive(
 							item.href
 						)
-							? 'bg-blue-50 text-blue-600 font-medium dark:bg-blue-950 dark:text-blue-400'
-							: 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'}"
+							? 'bg-primary text-primary-foreground font-medium'
+							: 'text-foreground/70 hover:bg-accent hover:text-accent-foreground'}"
 					>
 						<svelte:component this={item.icon} class="h-5 w-5" />
 						{item.label}
@@ -113,13 +113,13 @@
 			</nav>
 
 			<!-- Theme Settings Footer -->
-			<div class="border-t dark:border-gray-800 p-3 space-y-1">
+			<div class="border-t border-border p-3 space-y-1">
 				<ColorSchemeChooser />
 				<ThemeToggle />
 			</div>
 
 			<!-- User Component -->
-			<div class="border-t dark:border-gray-800 p-3">
+			<div class="border-t border-border p-3">
 				<SidebarUser />
 			</div>
 		</div>
